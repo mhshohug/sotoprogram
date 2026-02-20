@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>ERP AI</title>
+<title>34" Program View</title>
 
 <style>
 body{
@@ -14,11 +14,22 @@ body{
   flex-direction:column;
 }
 
+/* ===== Top Title Bar ===== */
+#topBar{
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:15px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+/* ===== Chat Area ===== */
 #chat{
   flex:1;
   overflow-y:auto;
   padding:15px;
-  padding-bottom:90px; /* important */
+  padding-bottom:90px;
 }
 
 .message{
@@ -47,6 +58,7 @@ img{
   border-radius:10px;
 }
 
+/* ===== Input Box ===== */
 #inputBox{
   position:fixed;
   bottom:0;
@@ -84,6 +96,9 @@ img{
 </head>
 
 <body>
+
+<!-- ===== Title ===== -->
+<div id="topBar">34" Program View</div>
 
 <div id="chat"></div>
 
