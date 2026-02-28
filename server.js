@@ -2,10 +2,10 @@ const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
 
-const app = express();
-app.use(cors());
-app.use(express.json());
-app.use(express.static(__dirname));
+const router = express.Router();
+router.use(cors());
+router.use(express.json());
+router.use(express.static(__dirname));
 
 const PORT = 3000;
 
@@ -31,7 +31,7 @@ async function loadSheet() {
 }
 
 // ================= IMAGE PROXY =================
-app.get("/img/:id", async (req, res) => {
+router.get("/img/:id", async (req, res) => {
   try {
     const driveUrl = `https://drive.google.com/uc?export=view&id=${req.params.id}`;
     const img = await axios.get(driveUrl, { responseType: "arraybuffer" });
@@ -44,7 +44,7 @@ app.get("/img/:id", async (req, res) => {
 });
 
 // ================= SEARCH SYSTEM =================
-app.post("/ask", async (req, res) => {
+router.post("/ask", async (req, res) => {
 
   try {
 
@@ -117,7 +117,4 @@ SILL: ${sill}
   }
 });
 
-// ================= START SERVER =================
-app.listen(PORT, () => {
-  console.log("🚀 ERP AI RUNNING ON PORT " + PORT);
-});
+module.exports = router;
